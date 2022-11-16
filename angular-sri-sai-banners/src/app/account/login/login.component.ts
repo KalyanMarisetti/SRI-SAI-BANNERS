@@ -28,11 +28,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-     //Validation Set
-     this.loginForm = this.formBuilder.group({
+    //Validation Set
+    this.loginForm = this.formBuilder.group({
       // email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
-      email: ['kalyanmarisetti98@gmail.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]],
     });
 
   }
@@ -40,12 +40,10 @@ export class LoginComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
-    if(this.loginForm.valid){
-      console.log('***********Form Valid*************')
-    } else{
-      console.log('***********Form IN Valid*************')
+    if (this.loginForm.valid) {
+    } else {
 
     }
   }
@@ -53,7 +51,7 @@ export class LoginComponent implements OnInit {
   /**
    * Password Hide/Show
    */
-   toggleFieldTextType() {
+  toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
   }
 
