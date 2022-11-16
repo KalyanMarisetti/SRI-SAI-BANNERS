@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   year: number = new Date().getFullYear();
   loginForm!: FormGroup;
   fieldTextType!: boolean;
+  submitted = false;
   showNavigationArrows: any;
 
   constructor(private formBuilder: FormBuilder,
@@ -27,10 +28,26 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+     //Validation Set
+     this.loginForm = this.formBuilder.group({
+      // email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
+      email: ['kalyanmarisetti98@gmail.com', [Validators.required, Validators.email]],
+      password: ['123456', [Validators.required]],
+    });
+
   }
 
-  onSubmit(){
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
 
+  onSubmit(){
+    this.submitted = true;
+    if(this.loginForm.valid){
+      console.log('***********Form Valid*************')
+    } else{
+      console.log('***********Form IN Valid*************')
+
+    }
   }
 
   /**
