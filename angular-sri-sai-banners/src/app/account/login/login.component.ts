@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.valid) {
+      this.router.navigate(['/extrapages/maintanence'])
     } else {
 
     }
